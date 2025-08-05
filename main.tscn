@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7ikewmdfxjso"]
+
+[ext_resource type="Texture2D" uid="uid://2a1blhpx8qy2" path="res://images/Hana Caraka - Base Character [sample]/idle.png" id="1_ig7tw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0xm2m"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2yge"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bvp3"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lquwl"]
+atlas = ExtResource("1_ig7tw")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dm0k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0xm2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2yge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bvp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lquwl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ig7tw"]
+size = Vector2(67, 72)
+
+[node name="Main" type="Node"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+
+[node name="IdleFront" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(416, 333)
+scale = Vector2(5.25, 5.25)
+sprite_frames = SubResource("SpriteFrames_7dm0k")
+frame_progress = 0.394948
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(413.5, 336)
+shape = SubResource("RectangleShape2D_ig7tw")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
